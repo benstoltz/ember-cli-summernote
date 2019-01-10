@@ -50,7 +50,7 @@ let SummerNoteComponent = Component.extend({
     let _airMode        = get(this, 'airMode');
     let _dialogsInBody  = get(this, 'dialogsInBody');
     let _lang           = get(this, 'config')['ember-cli-summernote'].lang;
-    let _toolbar        = this.getToolbarOptions(this.get('toolbarOptions'));
+    let _toolbar        = get(this, 'toolbar') || this.getToolbarOptions(this.get('toolbarOptions'));
     let _callbacks      = get(this, 'callbacks');
     _callbacks.onChange = this.get('onChange').bind(this);
 
