@@ -52,6 +52,7 @@ let SummerNoteComponent = Component.extend({
     let _lang           = get(this, 'config')['ember-cli-summernote'].lang;
     let _toolbar        = get(this, 'toolbar') || this.getToolbarOptions(this.get('toolbarOptions'));
     let _callbacks      = get(this, 'callbacks');
+    let _popover        = get(this, 'popover');
     _callbacks.onChange = this.get('onChange').bind(this);
 
     let _customButtons = {};
@@ -76,7 +77,8 @@ let SummerNoteComponent = Component.extend({
       airMode: _airMode,
       dialogsInBody: _dialogsInBody,
       callbacks: _callbacks,
-      buttons: _customButtons
+      buttons: _customButtons,
+      popover: _popover
     });
 
     this.$().find('.note-editable').attr('contenteditable', !this.get('disabled'));
