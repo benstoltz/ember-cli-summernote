@@ -3,7 +3,7 @@ import Ember from "ember";
 const {
   get,
   assert,
-  Logger,
+  // Logger,
   getOwner,
   isEqual,
   isEmpty,
@@ -31,7 +31,7 @@ let SummerNoteComponent = Component.extend({
   }),
 
   onChange(text) {
-    Logger.debug(`onChange callback. text: ${text}`);
+    // Logger.debug(`onChange callback. text: ${text}`);
     let _onContentChange = this.get('onContentChange');
     if (!isEmpty(_onContentChange)) {
       _onContentChange(text);
