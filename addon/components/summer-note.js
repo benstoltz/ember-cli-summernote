@@ -53,6 +53,7 @@ let SummerNoteComponent = Component.extend({
     let _toolbar        = get(this, 'toolbar') || this.getToolbarOptions(this.get('toolbarOptions'));
     let _callbacks      = get(this, 'callbacks');
     let _popover        = get(this, 'popover');
+    let _disableDragAndDrop = get(this, 'disableDragAndDrop');
     _callbacks.onChange = this.get('onChange').bind(this);
 
     let _customButtons = {};
@@ -78,7 +79,8 @@ let SummerNoteComponent = Component.extend({
       dialogsInBody: _dialogsInBody,
       callbacks: _callbacks,
       buttons: _customButtons,
-      popover: _popover
+      popover: _popover,
+      disableDragAndDrop: _disableDragAndDrop
     });
 
     this.$().find('.note-editable').attr('contenteditable', !this.get('disabled'));
