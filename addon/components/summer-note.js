@@ -53,6 +53,7 @@ let SummerNoteComponent = Component.extend({
     let _toolbar        = get(this, 'toolbar') || this.getToolbarOptions(this.get('toolbarOptions'));
     let _callbacks      = get(this, 'callbacks');
     let _popover        = get(this, 'popover');
+    let _buttons        = get(this, 'buttons');
     let _disableDragAndDrop = get(this, 'disableDragAndDrop');
     _callbacks.onChange = this.get('onChange').bind(this);
 
@@ -78,7 +79,7 @@ let SummerNoteComponent = Component.extend({
       airMode: _airMode,
       dialogsInBody: _dialogsInBody,
       callbacks: _callbacks,
-      buttons: _customButtons,
+      buttons: _buttons || _customButtons,
       popover: _popover,
       disableDragAndDrop: _disableDragAndDrop
     });
