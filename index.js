@@ -9,12 +9,11 @@ module.exports = {
 
   included: function(app) {
     this._super.included(app);
-
-    var summernotePath   = path.join(app.bowerDirectory,'/summernote/dist/');
-    var bootstrapPath   = path.join(app.bowerDirectory,'/bootstrap/dist/');
+    var summernotePath   = path.join('node_modules/summernote/dist/');
+    var bootstrapPath   = path.join('node_modules/bootstrap/dist/');
 
     // DBG.
-    var options         = app.options['ember-cli-summernote'] || {};  // This options are from the ember-cli-build.js
+    // var options         = app.options['ember-cli-summernote'] || {};  // This options are from the ember-cli-build.js
     // console.log(`index.js: options: ${JSON.stringify(app.options['ember-cli-summernote'])}`);
 
     var projectConfig = this.project.config(app.env); // This projectConfig is from the consuming app's environment.js
@@ -33,7 +32,12 @@ module.exports = {
     // Include Summernote.
     app.import(path.join(summernotePath, 'summernote.css'));
     if (!process.env.EMBER_CLI_FASTBOOT) {
-      app.import(path.join(summernotePath, 'summernote.min.js'));
+      // app.import(path.join(summernotePath, 'summernote.js'), {
+      //   using: [
+      //     { transformation: 'amd', as: 'summernote' }
+      //   ]
+      // });
+      app.import(path.join(summernotePath, 'summernote.js'));
     }
     app.import(path.join(summernotePath, 'font/summernote.eot'), { destDir: 'assets/font' });
     app.import(path.join(summernotePath, 'font/summernote.ttf'), { destDir: 'assets/font' });
